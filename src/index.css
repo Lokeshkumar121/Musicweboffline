@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #121212;
+  color: white;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 25%;
+  background: #1e1e1e;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.song-item {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.song-item:hover {
+  background: #333;
+}
+
+.song-item.active {
+  background: #1db954;
+}
+
+.player {
+  width: 75%;
+  text-align: center;
+  padding: 40px;
+}
+
+.player img {
+  width: 300px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.controls button {
+  margin: 15px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background: #1db954;
+  border: none;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  width: 60%;
+}
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: 5px auto 15px;
+  font-size: 14px;
+  color: #ccc;
+}
+/* ===================== */
+/* 📱 Mobile Responsive  */
+/* ===================== */
+
+@media (max-width: 768px) {
+
+  .app {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 220px;
+    order: 2; /* sidebar niche aayega */
+  }
+
+  .player {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .player img {
+    width: 220px;
+  }
+
+  input[type="range"],
+  .time-display {
+    width: 90%;
+  }
+
+  .controls button {
+    margin: 8px;
+    padding: 8px 14px;
+    font-size: 16px;
+  }
+}
+
+/* Extra Small Mobile (iPhone size ~ 390px) */
+
+@media (max-width: 480px) {
+
+  .player img {
+    width: 180px;
+  }
+
+  .controls button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .sidebar {
+    height: 180px;
+    padding: 15px;
+  }
+
+  .song-item {
+    font-size: 14px;
+  }
+}
