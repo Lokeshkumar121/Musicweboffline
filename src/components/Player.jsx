@@ -1,11 +1,27 @@
 import React, { useState, useRef, useEffect } from "react";
 
-function Player({ songs, currentIndex, setCurrentIndex }) {
-    const [isPlaying, setIsPlaying] = useState(false);
+function Player({   songs, 
+  currentIndex, 
+  setCurrentIndex, 
+  setIsSidebarOpen,
+  isPlaying,
+  setIsPlaying }) {
+    
     const [progress, setProgress] = useState(0);
     const [duration, setDuration] = useState(0);
-    const audioRef = useRef(null);
     const [isLoop, setIsLoop] = useState(false);
+    const audioRef = useRef(null);
+    useEffect(() => {
+  setProgress(0);
+}, [currentIndex]);
+
+    useEffect(() => {
+  if (isPlaying) {
+    audioRef.current.play();
+  } else {
+    audioRef.current.pause();
+  }
+}, [currentIndex, isPlaying]);
 
     const toggleLoop = () => {
         const newLoopState = !isLoop;
@@ -14,10 +30,13 @@ function Player({ songs, currentIndex, setCurrentIndex }) {
     };
 
     const playPause = () => {
-        if (isPlaying) audioRef.current.pause();
-        else audioRef.current.play();
-        setIsPlaying(!isPlaying);
-    };
+  if (isPlaying) {
+    audioRef.current.pause();
+  } else {
+    audioRef.current.play();
+  }
+  setIsPlaying(!isPlaying);
+};
 
     const nextSong = () => {
         setCurrentIndex((prev) => (prev + 1) % songs.length);
@@ -30,8 +49,7 @@ function Player({ songs, currentIndex, setCurrentIndex }) {
     };
 
     const updateProgress = () => {
-        const currentTime = audioRef.current.currentTime;
-        setProgress(currentTime);
+        setProgress(audioRef.current.currentTime);
     };
 
     const setAudioData = () => {
@@ -43,7 +61,6 @@ function Player({ songs, currentIndex, setCurrentIndex }) {
         setProgress(e.target.value);
     };
 
-    // 🔹 Time Format Function (MM:SS)
     const formatTime = (time) => {
         if (!time) return "00:00";
         const minutes = Math.floor(time / 60);
@@ -60,10 +77,56 @@ function Player({ songs, currentIndex, setCurrentIndex }) {
     }, [currentIndex]);
 
     return (
-        <div className="player">
-            <img src={songs[currentIndex].cover} alt="cover" />
-            <h2>{songs[currentIndex].title}</h2>
-            <p>{songs[currentIndex].artist}</p>
+        <div className="player-container">
+
+            {/* ✅ TOP BAR (NOW CORRECT POSITION) */}
+            <div className="top-bar">
+                <button
+                    className="menu-btn"
+                    onClick={() => setIsSidebarOpen(true)}
+                >
+                    ☰
+                </button>
+            </div>
+
+            <div className={`image-wrapper ${isPlaying ? "playing" : ""}`}
+                style={{
+                    backgroundImage: `url(${songs[currentIndex].cover})`
+                }}>
+                <img src={songs[currentIndex].cover} alt="cover" className={isPlaying ? "playing" : ""}  />
+            </div>
+
+            <div className="content">
+                <h2>{songs[currentIndex].title}</h2>
+                <p>{songs[currentIndex].artist}</p>
+
+                <input
+                    type="range"
+                    min="0"
+                    max={duration}
+                    value={progress}
+                    onChange={handleSeek}
+                />
+
+                <div className="time-display">
+                    <span>{formatTime(progress)}</span>
+                    <span>{formatTime(duration)}</span>
+                </div>
+
+                <div className="controls">
+                    <button onClick={prevSong}>⏮</button>
+                    <button onClick={playPause}>
+                        {isPlaying ? "⏸" : "▶"}
+                    </button>
+                    <button onClick={nextSong}>⏭</button>
+                    <button
+                        onClick={toggleLoop}
+                        style={{ background: isLoop ? "#1db954" : "#555" }}
+                    >
+                        🔁
+                    </button>
+                </div>
+            </div>
 
             <audio
                 ref={audioRef}
@@ -73,37 +136,6 @@ function Player({ songs, currentIndex, setCurrentIndex }) {
                 onEnded={nextSong}
             />
 
-            {/* 🔹 Progress Bar */}
-            <input
-                type="range"
-                min="0"
-                max={duration}
-                value={progress}
-                onChange={handleSeek}
-                style={{
-                    "--progress": duration ? (progress / duration) * 100 : 0
-                }}
-            />
-
-            {/* 🔹 Time Display */}
-            <div className="time-display">
-                <span>{formatTime(progress)}</span>
-                <span>{formatTime(duration)}</span>
-            </div>
-
-            <div className="controls">
-                <button onClick={prevSong}>⏮</button>
-                <button onClick={playPause}>
-                    {isPlaying ? "⏸" : "▶"}
-                </button>
-                <button onClick={nextSong}>⏭</button>
-                <button
-                    onClick={toggleLoop}
-                    style={{ background: isLoop ? "#1db954" : "#555" }}
-                >
-                    🔁
-                </button>
-            </div>
         </div>
     );
 }

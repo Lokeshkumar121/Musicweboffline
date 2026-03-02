@@ -1,127 +1,337 @@
-body {
+/* ========================= */
+/* RESET */
+/* ========================= */
+
+* {
   margin: 0;
-  font-family: Arial;
-  background: #121212;
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f5f5;
+  color: #111;
+  overflow: hidden;
+}
+
+/* ========================= */
+/* APP CONTAINER */
+/* ========================= */
 
 .app {
-  display: flex;
+  width: 100%;
   height: 100vh;
+  position: relative;
 }
 
-.sidebar {
-  width: 25%;
-  background: #1e1e1e;
-  padding: 20px;
-  overflow-y: auto;
+/* ========================= */
+/* PLAYER FULL SCREEN */
+/* ========================= */
+
+.player-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
-.song-item {
-  padding: 10px;
+/* ========================= */
+/* FULL BACKGROUND IMAGE */
+/* ========================= */
+.image-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🔹 Blurred Background Layer */
+.image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(50px) brightness(0.85);
+  transform: scale(1.4);
+  z-index: 0;
+}
+
+/* 🔥 Circle Container */
+.image-wrapper img {
+  width: 320px;
+  aspect-ratio: 1 / 1;     /* always perfect square */
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  display: block;          /* removes inline gap */
+  z-index: 2;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+/* 🎵 Play state */
+.image-wrapper img.playing {
+  animation: spinAlbum 8s linear infinite;
+}
+
+/* 🔥 Rotation Animation */
+@keyframes spinAlbum {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 🔥 Background Lighting Effect */
+.image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+      circle at center,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(245, 245, 245, 0.25) 20%,
+    rgba(230, 230, 230, 0.2) 40%,
+    rgba(210, 210, 210, 0.15) 60%,
+    transparent 100%
+  );
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+
+/* 🎵 When Playing → Glow Active */
+.image-wrapper.playing::after {
+  opacity: 1;
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* 🔥 Pulse Animation */
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* LIGHT OVERLAY */
+
+
+/* ========================= */
+/* TOP MENU BUTTON */
+/* ========================= */
+
+.top-bar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.menu-btn {
+  font-size: 22px;
+  background: rgba(255,255,255,0.8);
+  border: none;
+  color: #111;
+  padding: 8px 12px;
+  border-radius: 10px;
   cursor: pointer;
-  border-radius: 5px;
 }
 
-.song-item:hover {
-  background: #333;
+/* ========================= */
+/* BOTTOM CONTENT PANEL */
+/* ========================= */
+
+.content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 25px 20px 35px;
+  z-index: 5;
+
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px);
 }
 
-.song-item.active {
-  background: #1db954;
+/* Song Title */
+.content h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
 }
 
-.player {
-  width: 75%;
-  text-align: center;
-  padding: 40px;
-}
-
-.player img {
-  width: 300px;
-  border-radius: 15px;
+/* Artist */
+.content p {
+  font-size: 14px;
+  color: #555;
   margin-bottom: 20px;
 }
 
+/* ========================= */
+/* PROGRESS BAR FULL WIDTH */
+/* ========================= */
+
+input[type="range"] {
+  width: 100%;
+  height: 4px;
+  accent-color: #1db954;
+  margin-top: 10px;
+}
+
+/* TIME DISPLAY */
+.time-display {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 6px;
+  color: #666;
+}
+
+/* ========================= */
+/* CONTROLS */
+/* ========================= */
+
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .controls button {
-  margin: 15px;
-  padding: 10px 20px;
+  margin: 0 12px;
+  padding: 12px 18px;
   font-size: 18px;
   background: #1db954;
   border: none;
+  border-radius: 50px;
   color: white;
-  border-radius: 30px;
   cursor: pointer;
 }
 
-input[type="range"] {
-  width: 60%;
+/* ========================= */
+/* SIDEBAR FIX */
+/* ========================= */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 75%;
+  height: 100vh;
+  background: #ffffff;
+  padding: 25px;
+  transition: 0.4s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  color: #111;
 }
-.time-display {
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 900;
+}
+
+.sidebar-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+/* Song Item Layout */
+.song-item {
   display: flex;
-  justify-content: space-between;
-  width: 60%;
-  margin: 5px auto 15px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  background: #f5f5f5;
+  transition: 0.25s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.song-item:hover {
+  background: #eaeaea;
+}
+
+/* Thumbnail */
+.song-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+/* Song Info */
+.song-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-info .title {
   font-size: 14px;
-  color: #ccc;
-}
-/* ===================== */
-/* 📱 Mobile Responsive  */
-/* ===================== */
-
-@media (max-width: 768px) {
-
-  .app {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: 220px;
-    order: 2; /* sidebar niche aayega */
-  }
-
-  .player {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .player img {
-    width: 220px;
-  }
-
-  input[type="range"],
-  .time-display {
-    width: 90%;
-  }
-
-  .controls button {
-    margin: 8px;
-    padding: 8px 14px;
-    font-size: 16px;
-  }
+  font-weight: 600;
+  color: #111;
 }
 
-/* Extra Small Mobile (iPhone size ~ 390px) */
+.song-info .artist {
+  font-size: 12px;
+  color: #666;
+}
 
-@media (max-width: 480px) {
+/* Active Song */
+.song-item.active {
+  background: linear-gradient(135deg, #1db954, #34d399);
+}
 
-  .player img {
-    width: 180px;
-  }
+.song-item.active .title,
+.song-item.active .artist {
+  color: white;
+}
 
-  .controls button {
-    font-size: 14px;
-    padding: 6px 12px;
-  }
+/* Playing Indicator */
+.playing-dot {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  margin-left: auto;
+  animation: pulse 1.5s infinite;
+}
 
-  .sidebar {
-    height: 180px;
-    padding: 15px;
-  }
-
-  .song-item {
-    font-size: 14px;
-  }
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
 }
