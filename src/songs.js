@@ -1,3 +1,51 @@
+// Images 
+import cover1 from "./images/img1.jpg";
+import cover2 from "./images/img2.jpg";
+import cover3 from "./images/img3.jpg";
+import cover4 from "./images/img4.jpg";
+import cover5 from "./images/img5.jpg";
+import cover6 from "./images/img6.jpg";
+import cover7 from "./images/img7.jpg";
+import cover8 from "./images/img8.jpg";
+import cover9 from "./images/img9.jpg";
+import cover10 from "./images/img10.jpg";
+import cover11 from "./images/img11.jpg";
+import cover12 from "./images/img12.jpg";
+import cover13 from "./images/img13.jpg";
+import cover14 from "./images/img14.jpg";
+import cover15 from "./images/img15.jpg";
+import cover16 from "./images/img16.jpg";
+import cover17 from "./images/img17.jpg";
+import cover18 from "./images/img18.jpg";
+import cover19 from "./images/img19.jpg";
+import cover20 from "./images/img20.jpg";
+import cover21 from "./images/img21.jpg";
+import cover22 from "./images/img22.jpg";
+import cover23 from "./images/img23.jpg";
+import cover24 from "./images/img24.jpg";
+import cover25 from "./images/img25.jpg";
+import cover26 from "./images/img26.jpg";
+import cover27 from "./images/img27.jpg";
+import cover28 from "./images/img28.jpg";
+import cover29 from "./images/img29.jpg";
+import cover30 from "./images/img30.jpg";
+import cover31 from "./images/img31.jpg";
+import cover32 from "./images/img32.jpg";
+import cover33 from "./images/img33.jpg";
+import cover34 from "./images/img34.jpg";
+import cover35 from "./images/img35.jpg";
+import cover36 from "./images/img36.jpg";
+import cover37 from "./images/img37.jpg";
+import cover38 from "./images/img38.jpg";
+import cover39 from "./images/img39.jpg";
+import cover40 from "./images/img40.jpg";
+import cover41 from "./images/img41.jpg";
+import cover42 from "./images/img42.jpg";
+import cover43 from "./images/img43.jpg";
+import cover44 from "./images/img44.jpg";
+
+// Songs 
+
 import song1 from "./songs/cheli.mp3";
 import song2 from "./songs/hukaa.mp3";
 import song3 from "./songs/russian.mp3";
@@ -57,280 +105,278 @@ import song44 from "./songs/Z BLACK (Official Video) ｜ MD ｜ KD DESIROCK ｜ 
 
 
 
-
-
 export const songs = [
   {
     title: "Cheli",
     artist: "Harray Lather",
     src: song1,
-    cover: "https://i.ytimg.com/vi/qoDCL0049TA/sddefault.jpg"
+    cover: cover1
   },
   {
     title: "Hukaa Chilam",
     artist: "Ashu Twinkle and Filmy Dhamaka",
     src: song2,
-    cover: "https://i.ytimg.com/vi/ucHJQqfQexU/maxresdefault.jpg"
+    cover: cover2
   },
   {
     title: "Russian brand",
     artist: "Dhanda Nyoliwala",
     src: song3,
-    cover: "https://i.ytimg.com/vi/1OAjeECW90E/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBJmIMkr4Gi_0VjSO1DQo3GdvHKXA"
+    cover: cover3
   },
   {
     title: "Weapon ",
     artist: "Pranjal Dahiya",
     src: song4,
-    cover: "https://i.ytimg.com/vi/oxjcKVjojKk/maxresdefault.jpg"
+    cover: cover4
   },
   {
     title: "About Me ",
     artist: "Sean Houston",
     src: song5,
-    cover: "https://c.saavncdn.com/200/About-Me-Hindi-2024-20240321141813-500x500.jpg"
+    cover: cover5
   },
   {
     title: "Aaja Meri Gadi Mein",
     artist: "Uttar Kumar",
     src: song6,
-    cover: "https://i.ytimg.com/vi/RLa_lF0K-vQ/maxresdefault.jpg"
+    cover: cover6
   }
   ,
   {
     title: "Aakh Ye Taalibaani",
     artist: "Manish sonipat Aala",
     src: song7,
-    cover: "https://i.ytimg.com/vi/Y4-Ly0gHGLE/maxresdefault.jpg"
+    cover: cover7
   },
   {
     title: "Angad Lalkaar",
     artist: "Narci",
     src: song8,
-    cover: "https://i.ytimg.com/vi/AIaikEb1jd4/maxresdefault.jpg"
+    cover: cover8
   },
   {
     title: "Arthee",
     artist: "Rohit Sardhana",
     src: song9,
-    cover: "https://i.ytimg.com/vi/qpqY5yaIJos/maxresdefault.jpg"
+    cover: cover9
   },
   {
     title: "Bada Saang",
     artist: "Nandini Sharma",
     src: song10,
-    cover: "https://i.ytimg.com/vi/J-c53WgjiQ4/maxresdefault.jpg"
+    cover: cover10
   }
   ,
   {
     title: "Bairi",
     artist: "Virat",
     src: song11,
-    cover: "https://i.ytimg.com/vi/5H3yuPSB-ZM/maxresdefault.jpg"
+    cover: cover11
   }
   ,
   {
     title: "Bau Ji",
     artist: "Mohit Ladhotiya",
     src: song12,
-    cover: "https://i.ytimg.com/vi/d_v9xWiucfU/maxresdefault.jpg"
+    cover: cover12
   },
   {
     title: "CIRCLE",
     artist: "Amanraj Gill",
     src: song13,
-    cover: "https://i.ytimg.com/vi/_5c6EmJurxc/maxresdefault.jpg"
+    cover: cover13
   },
   {
     title: "Delhi Court Me Jatav",
     artist: "Akash Gautam",
     src: song14,
-    cover: "https://i.ytimg.com/vi/um2EhBlTQRY/maxresdefault.jpg"
+    cover: cover14
   }
   ,
   {
     title: "Desi Chore Jaata Ke",
     artist: "Chetan Nitharwal",
     src: song15,
-    cover: "https://i.ytimg.com/vi/FHi9D_dVguE/maxresdefault.jpg"
+    cover: cover15
   }
   ,
   {
     title: "Financer",
     artist: "Bintu Pabra",
     src: song16,
-    cover: "https://i.ytimg.com/vi/mgcesUk10QM/maxresdefault.jpg"
+    cover: cover16
   }
   ,
   {
     title: "Fortuner",
     artist: "Gulshan Music",
     src: song17,
-    cover: "https://i.ytimg.com/vi/ZvXN0TcZLfQ/maxresdefault.jpg"
+    cover: cover17
   }
   ,
   {
     title: "Harsh Likhari - Bebe Bapu",
     artist: "Vagish",
     src: song18,
-    cover: "https://i.ytimg.com/vi/cpKolP6mMec/maxresdefault.jpg"
+    cover: cover18
   },
   {
     title: "Hopeless",
     artist: "Amanraj Gill",
     src: song19,
-    cover: "https://i.ytimg.com/vi/XcJVcyZ2vwE/maxresdefault.jpg"
+    cover: cover19
   }
     ,  
     {
     title: "Jaat Bagdo",
     artist: "Khasa Aala Chahar",
     src: song20,
-    cover: "https://i.ytimg.com/vi/C9WSwNGI7oM/maxresdefault.jpg"
+    cover: cover20
   },
     {
         title: "Jatajoot",  
         artist: "Narci",
         src: song21,
-        cover: "https://i.ytimg.com/vi/trfD6z05vLE/maxresdefault.jpg"
+        cover: cover21
     },
     {
         title: "Kaise Ho",
         artist: "Bintu Pabra",
         src: song22,
-        cover: "https://i.ytimg.com/vi/TnqSV_Ucurk/maxresdefault.jpg"
+        cover: cover22
     },
     {
         title: "Kale Kagaz",
         artist: "Unknown",
         src: song23,
-        cover: "https://i.ytimg.com/vi/E0Te2U5vj0E/maxresdefault.jpg"
+        cover: cover23
     },
     {
         title: "Karma Song",
         artist: "Kantara Chapter 1",
         src: song24,
-        cover: "https://i.ytimg.com/vi/8NM84H6U9Xo/maxresdefault.jpg"
+        cover: cover24
     },
     {
         title: "Kishor Avastha",
         artist: "Vjay Kharb & Shiva Choudhary",
         src: song25,
-        cover: "https://i.ytimg.com/vi/oNuPl06Dr_0/maxresdefault.jpg"
+        cover: cover25
     },
     {
         title: "Lath",
         artist: "Khasa Aala Chahar Ft. Addy Nagar",
         src: song26,
-        cover: "https://i.ytimg.com/vi/X40NrruDDqs/maxresdefault.jpg"
+        cover: cover26
     },
     {
         title: "Mahila Mittar",
         artist: "Masoom Sharma, Khushi Baliyan, Kulbir, Komal C",   
         src: song27,
-        cover: "https://i.ytimg.com/vi/1TlHM1lR09o/maxresdefault.jpg"
+        cover: cover27
     },
     {
         title: "Mujra",
         artist: "Rohit Sardhana",
         src: song28,
-        cover: "https://i.ytimg.com/vi/5F00_EnA9vc/maxresdefault.jpg"
+        cover: cover28
     },
     {
         title: "Naam Chale",    
         artist: "Vikram Sarkar",
         src: song29,
-        cover: "https://i.ytimg.com/vi/tYKrORILFOg/maxresdefault.jpg"
+        cover: cover29
     },
     {
         title: "Naina Te War",
         artist: "Lakshay Dahiya",
         src: song30,
-        cover: "https://i.ytimg.com/vi/fA29puzthao/maxresdefault.jpg"
+        cover: cover30
     },
     {
         title: "Rola Choudhar Ka",
         artist: "Khasa Aala Chahar",
         src: song31,
-        cover: "https://i.ytimg.com/vi/aIC3suP4rZM/maxresdefault.jpg"
+        cover: cover31
     },
     {
         title: "ROOTS",
         artist: "Bintu Pabra & KP Kundu",
         src: song32,
-        cover: "https://i.ytimg.com/vi/e36s_nZCD94/maxresdefault.jpg"
+        cover: cover32
     },
     {
         title: "Rose Garden",
         artist: "Ndee Kundu",
         src: song33,
-        cover: "https://i.ytimg.com/vi/OYf9NlA8AeU/maxresdefault.jpg"
+        cover: cover33
     },
     {
         title: "Sab Gunday Hai",
         artist: "Masoom Sharma, Manisha Sharma, Manjeet Mor, Shivani Yadav",
         src: song34,
-        cover: "https://i.ytimg.com/vi/mqug_kjstsY/maxresdefault.jpg"
+        cover: cover34
     },
     {
         title: "Sanson ki Mala",
         artist: "Nusrat fateh ali khan",
         src: song35,
-        cover: "https://i.ytimg.com/vi/41-mvKGR3Q8/maxresdefault.jpg"
+        cover: cover35
     },
     {
         title: "Shock",
         artist: "Amanraj Gill",
         src: song36,
-        cover: "https://i.ytimg.com/vi/NKTogo3Dd2A/maxresdefault.jpg"
+        cover: cover36
     },
     {
         title: "Sochta hoon",
         artist: "Unknown",
         src: song37,
-        cover: "https://i.ytimg.com/vi/_s3iubAXihM/maxresdefault.jpg"
+        cover: cover37
     },
     {
         title: "Status",
         artist: "Khasa Aala Chahar",
         src: song38,
-        cover: "https://i.ytimg.com/vi/A7Dk-ixHKjY/maxresdefault.jpg"
+        cover: cover38
     },
     {
         title: "Tag Awara Ke",
         artist: "Amanraj Gill, Shivani Yadav, Shiva Choudhary",
         src: song39,
-        cover: "https://i.ytimg.com/vi/4vNVBoOMKiY/maxresdefault.jpg"
+        cover: cover39
     },
     {
         title: "Up Aaja Jatavni",
         artist: "Anuj Jatav Piyawali",
         src: song40,
-        cover: "https://i.ytimg.com/vi/ioaILpmPlD8/maxresdefault.jpg"
+        cover: cover40
     },
     {
         title: "Yaari",
         artist: "Masoom Sharma",
         src: song41,
-        cover: "https://i.ytimg.com/vi/pEh_2kDfu2w/maxresdefault.jpg"
+        cover: cover41
     },
     {
         title: "Yamraj",
         artist: "Masoom Sharma",
         src: song42,
-        cover: "https://i.ytimg.com/vi/YEspeuPX8Wk/maxresdefault.jpg"
+        cover: cover42
     },
     {
         title: "YE JO HALKA HALKA SUROOR HAI (REMIX)",
         artist: "NUSRAT FATEH ALI KHAN X NOCTUNE",
         src: song43,
-        cover: "https://i.ytimg.com/vi/rlePvkP5fmM/maxresdefault.jpg"
+        cover: cover43
     },
     {
         title: "Z BLACK",
         artist: "MD, KD DESIROCK, Divya Jangid, Ameet Choudhary",
         src: song44,
-        cover: "https://i.ytimg.com/vi/iCOKIJE4pTs/maxresdefault.jpg"
+        cover: cover44
     }   
 
 ];

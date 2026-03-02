@@ -1,27 +1,28 @@
 import React, { useState, useRef, useEffect } from "react";
 
-function Player({   songs, 
-  currentIndex, 
-  setCurrentIndex, 
-  setIsSidebarOpen,
-  isPlaying,
-  setIsPlaying }) {
-    
+function Player({ songs,
+    currentIndex,
+    setCurrentIndex,
+    setIsSidebarOpen,
+    isPlaying,
+    setIsPlaying,
+    isOnline }) {
+
     const [progress, setProgress] = useState(0);
     const [duration, setDuration] = useState(0);
     const [isLoop, setIsLoop] = useState(false);
     const audioRef = useRef(null);
     useEffect(() => {
-  setProgress(0);
-}, [currentIndex]);
+        setProgress(0);
+    }, [currentIndex]);
 
     useEffect(() => {
-  if (isPlaying) {
-    audioRef.current.play();
-  } else {
-    audioRef.current.pause();
-  }
-}, [currentIndex, isPlaying]);
+        if (isPlaying) {
+            audioRef.current.play();
+        } else {
+            audioRef.current.pause();
+        }
+    }, [currentIndex, isPlaying]);
 
     const toggleLoop = () => {
         const newLoopState = !isLoop;
@@ -30,13 +31,13 @@ function Player({   songs,
     };
 
     const playPause = () => {
-  if (isPlaying) {
-    audioRef.current.pause();
-  } else {
-    audioRef.current.play();
-  }
-  setIsPlaying(!isPlaying);
-};
+        if (isPlaying) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+    };
 
     const nextSong = () => {
         setCurrentIndex((prev) => (prev + 1) % songs.length);
@@ -72,12 +73,13 @@ function Player({   songs,
         );
     };
 
-    useEffect(() => {
-        if (isPlaying) audioRef.current.play();
-    }, [currentIndex]);
+
 
     return (
         <div className="player-container">
+            <div className="mode-indicator">
+                {isOnline ? "🟢 Online Mode" : "🔴 Offline Mode"}
+            </div>
 
             {/* ✅ TOP BAR (NOW CORRECT POSITION) */}
             <div className="top-bar">
@@ -89,12 +91,24 @@ function Player({   songs,
                 </button>
             </div>
 
-            <div className={`image-wrapper ${isPlaying ? "playing" : ""}`}
+
+            <div className={`image-wrapper ${isPlaying ? "playing" : ""} ${
+    !isOnline ? "offline-style" : ""
+  }`}
                 style={{
                     backgroundImage: `url(${songs[currentIndex].cover})`
                 }}>
-                <img src={songs[currentIndex].cover} alt="cover" className={isPlaying ? "playing" : ""}  />
+                <img src={songs[currentIndex].cover} alt="cover" className={isPlaying ? "playing" : ""} />
             </div>
+
+
+
+            {!isOnline && (
+                <div className="offline-mode">
+                    🔴 You are Offline
+                </div>
+            )}
+
 
             <div className="content">
                 <h2>{songs[currentIndex].title}</h2>
